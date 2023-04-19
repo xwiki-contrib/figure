@@ -37,7 +37,7 @@ import org.xwiki.rendering.block.TableBlock;
 import org.xwiki.rendering.block.WordBlock;
 import org.xwiki.rendering.block.XDOM;
 import org.xwiki.rendering.block.match.ClassBlockMatcher;
-import org.xwiki.rendering.internal.macro.figure.DefaultFigureTypeRecognizer;
+import org.xwiki.contrib.figure.internal.DefaultFigureTypeRecognizer;
 import org.xwiki.rendering.parser.ParseException;
 import org.xwiki.rendering.parser.Parser;
 import org.xwiki.rendering.transformation.Transformation;

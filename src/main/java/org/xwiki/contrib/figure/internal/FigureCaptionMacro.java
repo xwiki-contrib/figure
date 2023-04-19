@@ -17,10 +17,10 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.rendering.internal.macro.figure;
+package org.xwiki.contrib.figure.internal;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -29,41 +29,36 @@ import javax.inject.Singleton;
 
 import org.xwiki.component.annotation.Component;
 import org.xwiki.rendering.block.Block;
-import org.xwiki.rendering.block.CompositeBlock;
 import org.xwiki.rendering.block.FigureBlock;
-import org.xwiki.rendering.block.MacroBlock;
+import org.xwiki.rendering.block.FigureCaptionBlock;
 import org.xwiki.rendering.block.MetaDataBlock;
 import org.xwiki.rendering.block.XDOM;
-import org.xwiki.rendering.macro.AbstractMacro;
+import org.xwiki.rendering.macro.AbstractNoParameterMacro;
 import org.xwiki.rendering.macro.MacroContentParser;
 import org.xwiki.rendering.macro.MacroExecutionException;
 import org.xwiki.rendering.macro.descriptor.DefaultContentDescriptor;
-import org.xwiki.rendering.macro.figure.FigureMacroParameters;
-import org.xwiki.rendering.macro.figure.FigureType;
 import org.xwiki.rendering.transformation.MacroTransformationContext;
 
-import static org.xwiki.rendering.internal.macro.figure.FigureTypeRecognizerMacro.DATA_XWIKI_RENDERING_FIGURE_TYPE;
-
 /**
- * Tag content as an illustration and with an optional caption.
+ * Provides a caption inside the Figure Macro content. Needs to be used as the first or last block.
  *
  * @version $Id$
  * @since 10.2
  */
 @Component
-@Named("figure")
+@Named("figureCaption")
 @Singleton
-public class FigureMacro extends AbstractMacro<FigureMacroParameters>
+public class FigureCaptionMacro extends AbstractNoParameterMacro
 {
     /**
      * The description of the macro.
      */
-    private static final String DESCRIPTION = "Tag content as an illustration and with an optional caption.";
+    private static final String DESCRIPTION = "Provide a figure caption when used inside the Figure macro.";
 
     /**
      * The description of the macro content.
      */
-    private static final String CONTENT_DESCRIPTION = "Illustration(s) and caption";
+    private static final String CONTENT_DESCRIPTION = "Caption content";
 
     @Inject
     private MacroContentParser contentParser;
@@ -71,10 +66,10 @@ public class FigureMacro extends AbstractMacro<FigureMacroParameters>
     /**
      * Create and initialize the descriptor of the macro.
      */
-    public FigureMacro()
+    public FigureCaptionMacro()
     {
-        super("Figure", DESCRIPTION, new DefaultContentDescriptor(CONTENT_DESCRIPTION, false, Block.LIST_BLOCK_TYPE),
-            FigureMacroParameters.class);
+        super("Figure Caption", DESCRIPTION,
+            new DefaultContentDescriptor(CONTENT_DESCRIPTION, true, Block.LIST_BLOCK_TYPE));
         setDefaultCategories(Set.of(DEFAULT_CATEGORY_DEVELOPMENT));
     }
 
@@ -85,25 +80,25 @@ public class FigureMacro extends AbstractMacro<FigureMacroParameters>
     }
 
     @Override
-    public List<Block> execute(FigureMacroParameters parameters, String content, MacroTransformationContext context)
+    public List<Block> execute(Object unusedParameters, String content, MacroTransformationContext context)
         throws MacroExecutionException
     {
-        XDOM xdom = this.contentParser.parse(content, context, false, false);
-        // Mark the macro content as being content that has not been transformed (so that it can be edited inline).
-        List<Block> contentBlock = List.of(new MetaDataBlock(xdom.getChildren(), getNonGeneratedContentMetaData()));
+        List<Block> result = Collections.emptyList();
 
-        FigureBlock figureBlock = new FigureBlock(contentBlock);
-        Block block;
-        // If a type is explicitly defined, it is used directly. Otherwise, we try to infer it from the macro's content.
-        if (FigureType.AUTOMATIC != parameters.getType()) {
-            figureBlock.setParameter(DATA_XWIKI_RENDERING_FIGURE_TYPE, parameters.getType().getName());
-            block = figureBlock;
-        } else {
-            block = new CompositeBlock(List.of(
-                new MacroBlock("figureTypeRecognizer", Map.of(), false),
-                figureBlock)
-            );
+        // If we're not inside a FigureBlock then don't do anything.
+        Block parent = context.getCurrentMacroBlock().getParent();
+        if (parent instanceof FigureBlock
+            || (parent instanceof MetaDataBlock && parent.getParent() instanceof FigureBlock))
+        {
+            XDOM xdom = this.contentParser.parse(content, context, false, false);
+            List<Block> figureCaptionChildren = xdom.getChildren();
+
+            // Mark the macro content as being content that has not been transformed (so that it can editable inline)
+            figureCaptionChildren = Collections.singletonList(new MetaDataBlock(figureCaptionChildren,
+                getNonGeneratedContentMetaData()));
+            result = Collections.singletonList(new FigureCaptionBlock(figureCaptionChildren));
         }
-        return List.of(block);
+
+        return result;
     }
 }

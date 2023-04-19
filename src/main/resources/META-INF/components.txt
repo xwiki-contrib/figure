@@ -1,4 +1,4 @@
-org.xwiki.rendering.internal.macro.figure.FigureMacro
-org.xwiki.rendering.internal.macro.figure.FigureCaptionMacro
-org.xwiki.rendering.internal.macro.figure.DefaultFigureTypeRecognizer
-org.xwiki.rendering.internal.macro.figure.FigureTypeRecognizerMacro
+org.xwiki.contrib.figure.internal.FigureMacro
+org.xwiki.contrib.figure.internal.FigureCaptionMacro
+org.xwiki.contrib.figure.internal.DefaultFigureTypeRecognizer
+org.xwiki.contrib.figure.internal.FigureTypeRecognizerMacro

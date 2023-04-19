@@ -21,7 +21,7 @@ package org.xwiki.rendering.macro.figure;
 
 import org.xwiki.properties.annotation.PropertyDescription;
 import org.xwiki.properties.annotation.PropertyName;
-import org.xwiki.rendering.internal.macro.figure.FigureMacro;
+import org.xwiki.contrib.figure.internal.FigureMacro;
 import org.xwiki.stability.Unstable;
 
 /**
