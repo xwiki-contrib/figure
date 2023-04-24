@@ -17,50 +17,39 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.rendering.macro.figure;
+package org.xwiki.contrib.figure.internal;
 
-import org.xwiki.stability.Unstable;
+import java.util.Map;
+import java.util.Set;
+
+import org.xwiki.component.annotation.Role;
+import org.xwiki.contrib.figure.FigureType;
 
 /**
- * Allowed figure types.
+ * Provides the operations to access the figures types configuration.
  *
  * @version $Id$
- * @since 14.9RC1
+ * @since 15.4
  */
-@Unstable
-public enum FigureType
+@Role
+public interface FigureTypesConfiguration
 {
     /**
-     * Implicit type, let the type be defined according to the body of the figure.
+     * @return the set of configured figure types
+     */
+    Set<FigureType> getFigureTypes();
+
+    /**
+     * @return a map of counters and their associated types (e.g.,
+     *     {@code Map.of("figure", Set.of("figure"), "math", Set.of("proof", "lemma"))})
+     */
+    Map<String, Set<FigureType>> getFigureCounters();
+
+    /**
+     * Resolve the counter for a given figure type.
      *
-     * @see FigureTypeRecognizer
+     * @param type a figure type (e.g., {@code "proof"})
+     * @return the resolve counter (e.g., "math")
      */
-    AUTOMATIC(""),
-    /**
-     * Explicit figure type.
-     */
-    FIGURE("figure"),
-
-    /**
-     * Explicit table type.
-     */
-    TABLE("table");
-
-    private String name;
-
-    /**
-     * @param name the name of the figure type (e.g., {@link FigureType#FIGURE})
-     */
-    FigureType(String name)
-    {
-        this.name = name;
-    }
-
-    /**
-     * @return the name of the figure type (e.g., {@link FigureType#FIGURE})
-     */
-    public String getName()
-    {
-        return this.name;
-    }
+    String getCounter(String type);
 }

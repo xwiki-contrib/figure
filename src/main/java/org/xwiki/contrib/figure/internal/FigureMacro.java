@@ -39,7 +39,6 @@ import org.xwiki.rendering.macro.MacroContentParser;
 import org.xwiki.rendering.macro.MacroExecutionException;
 import org.xwiki.rendering.macro.descriptor.DefaultContentDescriptor;
 import org.xwiki.rendering.macro.figure.FigureMacroParameters;
-import org.xwiki.rendering.macro.figure.FigureType;
 import org.xwiki.rendering.transformation.MacroTransformationContext;
 
 import static org.xwiki.contrib.figure.internal.FigureTypeRecognizerMacro.DATA_XWIKI_RENDERING_FIGURE_TYPE;
@@ -95,14 +94,12 @@ public class FigureMacro extends AbstractMacro<FigureMacroParameters>
         FigureBlock figureBlock = new FigureBlock(contentBlock);
         Block block;
         // If a type is explicitly defined, it is used directly. Otherwise, we try to infer it from the macro's content.
-        if (FigureType.AUTOMATIC != parameters.getType()) {
-            figureBlock.setParameter(DATA_XWIKI_RENDERING_FIGURE_TYPE, parameters.getType().getName());
+        if (parameters.getType() != null && !parameters.getType().isAutomatic()) {
+            figureBlock.setParameter(DATA_XWIKI_RENDERING_FIGURE_TYPE, parameters.getType().getId());
             block = figureBlock;
         } else {
-            block = new CompositeBlock(List.of(
-                new MacroBlock("figureTypeRecognizer", Map.of(), false),
-                figureBlock)
-            );
+            block =
+                new CompositeBlock(List.of(new MacroBlock(FigureTypeRecognizerMacro.ID, Map.of(), false), figureBlock));
         }
         return List.of(block);
     }

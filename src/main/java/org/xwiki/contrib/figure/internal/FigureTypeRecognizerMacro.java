@@ -33,8 +33,6 @@ import org.xwiki.rendering.macro.AbstractNoParameterMacro;
 import org.xwiki.rendering.macro.figure.FigureTypeRecognizer;
 import org.xwiki.rendering.transformation.MacroTransformationContext;
 
-import static org.xwiki.rendering.macro.figure.FigureType.FIGURE;
-import static org.xwiki.rendering.macro.figure.FigureType.TABLE;
 
 /**
  * This macro is expected to be put as the previous sibling of a {@link FigureBlock}. When in this position, it will
@@ -44,7 +42,7 @@ import static org.xwiki.rendering.macro.figure.FigureType.TABLE;
  * @since 14.6RC1
  */
 @Component
-@Named("figureTypeRecognizer")
+@Named(FigureTypeRecognizerMacro.ID)
 @Singleton
 public class FigureTypeRecognizerMacro extends AbstractNoParameterMacro
 {
@@ -55,6 +53,12 @@ public class FigureTypeRecognizerMacro extends AbstractNoParameterMacro
      */
     public static final String DATA_XWIKI_RENDERING_FIGURE_TYPE = "data-xwiki-rendering-figure-type";
 
+    /**
+     * Figure type recognizer hint.
+     * @since 15.4
+     */
+    public static final String ID = "figureTypeRecognizer";
+    
     @Inject
     private FigureTypeRecognizer figureTypeRecognizer;
 
@@ -81,7 +85,7 @@ public class FigureTypeRecognizerMacro extends AbstractNoParameterMacro
         Block nextSibling = context.getCurrentMacroBlock().getNextSibling();
         if (nextSibling instanceof FigureBlock && nextSibling.getParameter(DATA_XWIKI_RENDERING_FIGURE_TYPE) == null) {
             String type =
-                this.figureTypeRecognizer.isTable((FigureBlock) nextSibling) ? TABLE.getName() : FIGURE.getName();
+                this.figureTypeRecognizer.isTable((FigureBlock) nextSibling) ? "table" : "figure";
             nextSibling.setParameter(DATA_XWIKI_RENDERING_FIGURE_TYPE, type);
         }
         return List.of();

@@ -19,9 +19,12 @@
  */
 package org.xwiki.rendering.macro.figure;
 
+import java.util.Optional;
+
+import org.xwiki.contrib.figure.FigureType;
+import org.xwiki.contrib.figure.internal.FigureMacro;
 import org.xwiki.properties.annotation.PropertyDescription;
 import org.xwiki.properties.annotation.PropertyName;
-import org.xwiki.contrib.figure.internal.FigureMacro;
 import org.xwiki.stability.Unstable;
 
 /**
@@ -34,13 +37,13 @@ import org.xwiki.stability.Unstable;
 public class FigureMacroParameters
 {
     /**
-     * By default, the figure type is set to {@link FigureType#AUTOMATIC}.
+     * By default, the figure type is set to {@code null}, meaning that the type will be computed automatically.
      */
-    private FigureType type = FigureType.AUTOMATIC;
+    private FigureType type;
 
     /**
-     * @return the type of the figure (i.e., {@link FigureType#FIGURE} or {@link FigureType#TABLE}}), if
-     *     {@link FigureType#AUTOMATIC} the type will be automatically defined based on the macro content
+     * @return the type of the figure (e.g., "figure" or "table"), if {@link Optional#empty()} the type will be
+     *     automatically defined based on the macro content
      */
     public FigureType getType()
     {
@@ -48,11 +51,11 @@ public class FigureMacroParameters
     }
 
     /**
-     * @param type the type of the figure (i.e., {@link FigureType#FIGURE} or {@link FigureType#TABLE}}), if
-     *     {@link FigureType#AUTOMATIC} the type will be automatically defined based on the macro content
+     * @param type the type of the figure (e.g., "figure" or "table"), if {@code null} the type will be
+     *     automatically defined based on the macro content
      */
-    @PropertyDescription("The type of the figure (i.e., \"figure\" or \"table\"). When automatic, the type will be " 
-        + "defined based on the macro content.")
+    @PropertyDescription("The type of the figure (e.g., \"figure\" or \"table\"). When the type \"automatic\", the "
+        + "actual type will be defined based on the macro content.")
     @PropertyName("Type")
     public void setType(FigureType type)
     {

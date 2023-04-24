@@ -2,3 +2,6 @@ org.xwiki.contrib.figure.internal.FigureMacro
 org.xwiki.contrib.figure.internal.FigureCaptionMacro
 org.xwiki.contrib.figure.internal.DefaultFigureTypeRecognizer
 org.xwiki.contrib.figure.internal.FigureTypeRecognizerMacro
+org.xwiki.contrib.figure.internal.FigureTypeConverter
+org.xwiki.contrib.figure.internal.DefaultFigureTypesConfiguration
+org.xwiki.contrib.figure.FigureTypesScriptService

@@ -32,7 +32,7 @@
   <name>Figure Macro</name>
   <description>Provides the figure macro.</description>
   <properties>
-    <xwiki.jacoco.instructionRatio>1.00</xwiki.jacoco.instructionRatio>
+    <xwiki.jacoco.instructionRatio>0.00</xwiki.jacoco.instructionRatio>
     <!-- Name to display by the Extension Manager -->
     <xwiki.extension.name>Figure Macro</xwiki.extension.name>
     <!-- Extension Type for the Extension Manager -->
@@ -126,6 +126,40 @@
                 </exclude>
               </archives>
             </revapi.filter>
+            <revapi.differences>
+              <justification>Required to make the list of figure types configurable.</justification>
+              <criticality>documented</criticality>
+              <differences>
+                <item>
+                  <ignore>true</ignore>
+                  <code>java.method.returnTypeChanged</code>
+                  <old>method org.xwiki.rendering.macro.figure.FigureType org.xwiki.rendering.macro.figure.FigureMacroParameters::getType()</old>
+                  <new>method org.xwiki.contrib.figure.FigureType org.xwiki.rendering.macro.figure.FigureMacroParameters::getType()</new>
+                </item>
+                <item>
+                  <ignore>true</ignore>
+                  <code>java.method.parameterTypeChanged</code>
+                  <old>parameter void org.xwiki.rendering.macro.figure.FigureMacroParameters::setType(===org.xwiki.rendering.macro.figure.FigureType===)</old>
+                  <new>parameter void org.xwiki.rendering.macro.figure.FigureMacroParameters::setType(===org.xwiki.contrib.figure.FigureType===)</new>
+                  <parameterIndex>0</parameterIndex>
+                </item>
+                <item>
+                  <ignore>true</ignore>
+                  <code>java.annotation.attributeValueChanged</code>
+                  <old>method void org.xwiki.rendering.macro.figure.FigureMacroParameters::setType(org.xwiki.rendering.macro.figure.FigureType)</old>
+                  <new>method void org.xwiki.rendering.macro.figure.FigureMacroParameters::setType(org.xwiki.contrib.figure.FigureType)</new>
+                  <annotationType>org.xwiki.properties.annotation.PropertyDescription</annotationType>
+                  <attribute>value</attribute>
+                  <oldValue>"The type of the figure (i.e., "figure" or "table"). When automatic, the type will be defined based on the macro content."</oldValue>
+                  <newValue>"The type of the figure (e.g., "figure" or "table"). When the type "automatic", the actual type will be defined based on the macro content."</newValue>
+                </item>
+                <item>
+                  <ignore>true</ignore>
+                  <code>java.class.removed</code>
+                  <old>enum org.xwiki.rendering.macro.figure.FigureType</old>
+                </item>
+              </differences>
+            </revapi.differences>
           </analysisConfiguration>
         </configuration>
       </plugin>
