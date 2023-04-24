@@ -12,19 +12,5 @@ Provides the figure macro as well as its configuration.
 * Minimal XWiki version supported: 14.9
 * License: LGPL 2.1
 * [Translations](https://l10n.xwiki.org/projects/xwiki-contrib/figure-macro/)
-<!--
-  <if sonar is used>
-* [Sonar Dashboard](<url to the project’s dashboard on sonar.xwiki.org, e.g. https://sonar.xwiki.org/dashboard/index/10464>)
-  </if sonar is used>
-  <if sonar is not used>
-* Sonar Dashboard: N/A
-  </if sonar is not used>
--->
-<!--
-  <if ci is used>
-* Continuous Integration Status: [![Build Status](https://ci.xwiki.org/job/XWiki%20Contrib/job/<job name on ci.xwiki.org>/job/master/badge/icon)](https://ci.xwiki.org/job/XWiki%20Contrib/job/<job name on ci.xwiki.org>/job/master/)
-  </if ci is used>
-  <if ci is not used>
-* Continuous Integration Status: N/A
-  </if ci is not used>
--->
+* [Sonar Dashboard](https://sonarcloud.io/project/overview?id=org.xwiki.contrib%3Amacro-figure)
+* Continuous Integration Status: [![Build Status](https://ci.xwiki.org/view/Contrib/job/XWiki%20Contrib/job/macro-figure/job/main/badge/icon)](https://ci.xwiki.org/view/Contrib/job/XWiki%20Contrib/job/macro-figure/job/main/)
