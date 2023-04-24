@@ -11,14 +11,7 @@ Provides the figure macro as well as its configuration.
 * [Development Practices](http://dev.xwiki.org)
 * Minimal XWiki version supported: 14.9
 * License: LGPL 2.1
-<!--
-  <if translation is used>
-* [Translations](<url on l10n to translations for this extension>)
-  </if translation is used>
-  <if translation is not used>
-* Translations: N/A
-  </if translation is not used>
--->
+* [Translations](https://l10n.xwiki.org/projects/xwiki-contrib/figure-macro/)
 <!--
   <if sonar is used>
 * [Sonar Dashboard](<url to the project’s dashboard on sonar.xwiki.org, e.g. https://sonar.xwiki.org/dashboard/index/10464>)
