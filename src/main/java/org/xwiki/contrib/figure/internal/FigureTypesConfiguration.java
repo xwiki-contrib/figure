@@ -19,7 +19,6 @@
  */
 package org.xwiki.contrib.figure.internal;
 
-import java.util.Map;
 import java.util.Set;
 
 import org.xwiki.component.annotation.Role;
@@ -38,18 +37,4 @@ public interface FigureTypesConfiguration
      * @return the set of configured figure types
      */
     Set<FigureType> getFigureTypes();
-
-    /**
-     * @return a map of counters and their associated types (e.g.,
-     *     {@code Map.of("figure", Set.of("figure"), "math", Set.of("proof", "lemma"))})
-     */
-    Map<String, Set<FigureType>> getFigureCounters();
-
-    /**
-     * Resolve the counter for a given figure type.
-     *
-     * @param type a figure type (e.g., {@code "proof"})
-     * @return the resolve counter (e.g., "math")
-     */
-    String getCounter(String type);
 }

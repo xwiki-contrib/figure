@@ -21,7 +21,6 @@ package org.xwiki.contrib.figure.internal;
 
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -30,7 +29,7 @@ import org.xwiki.test.junit5.mockito.ComponentTest;
 import org.xwiki.test.junit5.mockito.InjectMockComponents;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.params.provider.Arguments.arguments;
+import static org.junit.jupiter.params.provider.Arguments.of;
 import static org.xwiki.contrib.figure.FigureType.AUTOMATIC;
 
 /**
@@ -48,9 +47,9 @@ class FigureTypeConverterTest
     public static Stream<Arguments> convertToStringSource()
     {
         return Stream.of(
-            arguments(null, null),
-            arguments(AUTOMATIC, AUTOMATIC.getId()),
-            arguments(new FigureType("test"), "test")
+            of(null, null),
+            of(AUTOMATIC, AUTOMATIC.getId()),
+            of(new FigureType("test"), "test")
         );
     }
 
@@ -61,10 +60,19 @@ class FigureTypeConverterTest
         assertEquals(expected, this.converter.convertToString(figureType));
     }
 
-    @Test
-    void convertToType()
+    public static Stream<Arguments> convertToTypeSource()
     {
-//        this.converter.convertToType(FigureType.class)
-        // TODO: test be tested
+        return Stream.of(
+            of(null, AUTOMATIC),
+            of("automatic", AUTOMATIC),
+            of("lemma", new FigureType("lemma"))
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("convertToTypeSource")
+    void convertToType(String value, FigureType expected)
+    {
+        assertEquals(expected, this.converter.convertToType(FigureType.class, value));
     }
 }

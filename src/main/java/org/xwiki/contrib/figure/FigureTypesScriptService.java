@@ -19,7 +19,6 @@
  */
 package org.xwiki.contrib.figure;
 
-import java.util.Map;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -27,10 +26,14 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import org.xwiki.component.annotation.Component;
+import org.xwiki.contrib.figure.internal.FigureLabelService;
 import org.xwiki.contrib.figure.internal.FigureTypesConfiguration;
 import org.xwiki.script.service.ScriptService;
 
 /**
+ * Gives access to the figures types, in particular the list of configured figure types as well at the localized label o
+ * the figure types.
+ *
  * @version $Id$
  * @since 15.4
  */
@@ -42,6 +45,9 @@ public class FigureTypesScriptService implements ScriptService
     @Inject
     private FigureTypesConfiguration figureTypesConfiguration;
 
+    @Inject
+    private FigureLabelService figureLabelService;
+
     /**
      * @return the set of configured figure types
      */
@@ -51,22 +57,12 @@ public class FigureTypesScriptService implements ScriptService
     }
 
     /**
-     * @return a map of counters and their associated types (e.g.,
-     *     {@code Map.of("figure", Set.of("figure"), "math", Set.of("proof", "lemma"))})
+     * @param type the figure type
+     * @return the translated value if key {@code org.xwiki.rendering.macro.figure.FigureType.$type} is found, the
+     *     capitalized type otherwise
      */
-    public Map<String, Set<FigureType>> getFigureCounters()
+    public String getLabel(String type)
     {
-        return this.figureTypesConfiguration.getFigureCounters();
-    }
-
-    /**
-     * Resolve the counter for a given figure type.
-     *
-     * @param type a figure type (e.g., {@code "proof"})
-     * @return the resolve counter (e.g., "math")
-     */
-    public String getCounter(String type)
-    {
-        return this.figureTypesConfiguration.getCounter(type);
+        return this.figureLabelService.getLabel(type);
     }
 }

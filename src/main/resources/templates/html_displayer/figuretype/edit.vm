@@ -23,12 +23,9 @@
   $escapetool.xml($parameter.key)="$!escapetool.xml($parameter.value)"
 #end
     >
-## TODO: resolve translation + make sure to have a stable sorting order (+ display the counter?)
-#set ($translationKeyPrefix = 'TODO.')
 #foreach ($value in $values)
   #set ($valueId = $value.getId())
-  #set ($translationKey = $translationKeyPrefix + $valueId)
-  #set ($label = $services.localization.render($translationKey))
+  #set ($label = $services.figureTypes.getLabel($valueId))
   #if (!$value.isAutomatic())
     #set ($value = $escapetool.xml($valueId))
   #else

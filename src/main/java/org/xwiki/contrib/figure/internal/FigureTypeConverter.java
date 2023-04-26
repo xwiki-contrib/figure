@@ -31,6 +31,8 @@ import org.xwiki.properties.converter.AbstractConverter;
 import static org.xwiki.contrib.figure.FigureType.AUTOMATIC;
 
 /**
+ * Convert a figure type to and from a {@link String}.
+ *
  * @version $Id$
  * @since 15.4
  */
