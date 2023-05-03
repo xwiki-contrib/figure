@@ -37,11 +37,11 @@ import static java.util.stream.Collectors.toList;
 import static org.xwiki.contrib.figure.FigureType.AUTOMATIC;
 import static org.xwiki.contrib.figure.FigureType.FIGURE;
 import static org.xwiki.contrib.figure.FigureType.TABLE;
-import static org.xwiki.contrib.figure.internal.FigureTypeConfigurationClassDocumentInitializer.TYPES;
+import static org.xwiki.contrib.figure.internal.FigureTypesConfigurationClassDocumentInitializer.TYPES;
 
 /**
  * Default figure types configuration. Resolve the configuration from
- * {@link FigureTypeConfigurationClassDocumentInitializer#CLASS_REFERENCE} found in
+ * {@link FigureTypesConfigurationClassDocumentInitializer#CLASS_REFERENCE} found in
  * {@link FigureTypesConfigurationSource#DOCUMENT_REFERENCE}. If not found, resolve the configuration from
  * {@code xwiki.properties} using the {@code figure.types} key. For instance:
  * <pre>

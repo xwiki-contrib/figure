@@ -31,8 +31,8 @@ import org.xwiki.contrib.figure.internal.FigureTypesConfiguration;
 import org.xwiki.script.service.ScriptService;
 
 /**
- * Gives access to the figures types, in particular the list of configured figure types as well at the localized label o
- * the figure types.
+ * Gives access to the figures types, in particular the list of configured figure types as well at the localized label
+ * of the figure types.
  *
  * @version $Id$
  * @since 15.4

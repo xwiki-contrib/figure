@@ -29,7 +29,7 @@ import org.xwiki.configuration.internal.AbstractDocumentConfigurationSource;
 import org.xwiki.model.reference.DocumentReference;
 import org.xwiki.model.reference.LocalDocumentReference;
 
-import static org.xwiki.contrib.figure.internal.FigureTypeConfigurationClassDocumentInitializer.CLASS_REFERENCE;
+import static org.xwiki.contrib.figure.internal.FigureTypesConfigurationClassDocumentInitializer.CLASS_REFERENCE;
 
 /**
  * Gives access to the configuration stored in {@code XWiki.Figure.FigureTypesConfiguration}.

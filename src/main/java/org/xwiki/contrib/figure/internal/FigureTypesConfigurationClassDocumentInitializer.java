@@ -29,7 +29,9 @@ import org.xwiki.model.reference.LocalDocumentReference;
 
 import com.xpn.xwiki.doc.AbstractMandatoryClassInitializer;
 import com.xpn.xwiki.objects.classes.BaseClass;
-import com.xpn.xwiki.objects.classes.ListClass;
+
+import static com.xpn.xwiki.objects.classes.ListClass.DISPLAYTYPE_INPUT;
+import static com.xpn.xwiki.objects.classes.ListClass.FREE_TEXT_ALLOWED;
 
 /**
  * {@code XWiki.Figure.FigureTypeClass} XClass initializer.
@@ -38,15 +40,15 @@ import com.xpn.xwiki.objects.classes.ListClass;
  * @since 15.4
  */
 @Component
-@Named("XWiki.Figure.FigureTypeConfigurationClass")
+@Named("XWiki.Figure.FigureTypesConfigurationClass")
 @Singleton
-public class FigureTypeConfigurationClassDocumentInitializer extends AbstractMandatoryClassInitializer
+public class FigureTypesConfigurationClassDocumentInitializer extends AbstractMandatoryClassInitializer
 {
     /**
-     * The document reference of the XClas.
+     * The document reference of the XClass.
      */
     public static final LocalDocumentReference CLASS_REFERENCE =
-        new LocalDocumentReference(List.of("XWiki", "Figure"), "FigureTypeConfigurationClass");
+        new LocalDocumentReference(List.of("XWiki", "Figure"), "FigureTypesConfigurationClass");
 
     /**
      * The name of field storing the types.
@@ -56,7 +58,7 @@ public class FigureTypeConfigurationClassDocumentInitializer extends AbstractMan
     /**
      * Default constructor.
      */
-    public FigureTypeConfigurationClassDocumentInitializer()
+    public FigureTypesConfigurationClassDocumentInitializer()
     {
         super(CLASS_REFERENCE);
     }
@@ -66,7 +68,7 @@ public class FigureTypeConfigurationClassDocumentInitializer extends AbstractMan
     {
         super.createClass(xclass);
 
-        xclass.addStaticListField(TYPES, "Types", 1, true, false,
-            null, ListClass.DISPLAYTYPE_INPUT, null, null, ListClass.FREE_TEXT_ALLOWED, false);
+        xclass.addStaticListField(TYPES, "Types", 1, true, false, null, DISPLAYTYPE_INPUT, null, null,
+            FREE_TEXT_ALLOWED, false);
     }
 }

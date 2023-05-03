@@ -25,7 +25,8 @@ import org.xwiki.stability.Unstable;
 import org.xwiki.text.XWikiToStringBuilder;
 
 /**
- * Allowed figure types.
+ * Stores information about a figure type: its id and whether it is the automatic type. Only the {@link #AUTOMATIC} has
+ * {@link #isAutomatic()} which returns {@code true}.
  *
  * @version $Id$
  * @since 15.4

@@ -33,6 +33,8 @@ import org.xwiki.rendering.macro.AbstractNoParameterMacro;
 import org.xwiki.rendering.macro.figure.FigureTypeRecognizer;
 import org.xwiki.rendering.transformation.MacroTransformationContext;
 
+import static org.xwiki.contrib.figure.FigureType.FIGURE;
+import static org.xwiki.contrib.figure.FigureType.TABLE;
 
 /**
  * This macro is expected to be put as the previous sibling of a {@link FigureBlock}. When in this position, it will
@@ -55,10 +57,11 @@ public class FigureTypeRecognizerMacro extends AbstractNoParameterMacro
 
     /**
      * Figure type recognizer hint.
+     *
      * @since 15.4
      */
     public static final String ID = "figureTypeRecognizer";
-    
+
     @Inject
     private FigureTypeRecognizer figureTypeRecognizer;
 
@@ -85,7 +88,7 @@ public class FigureTypeRecognizerMacro extends AbstractNoParameterMacro
         Block nextSibling = context.getCurrentMacroBlock().getNextSibling();
         if (nextSibling instanceof FigureBlock && nextSibling.getParameter(DATA_XWIKI_RENDERING_FIGURE_TYPE) == null) {
             String type =
-                this.figureTypeRecognizer.isTable((FigureBlock) nextSibling) ? "table" : "figure";
+                this.figureTypeRecognizer.isTable((FigureBlock) nextSibling) ? TABLE.getId() : FIGURE.getId();
             nextSibling.setParameter(DATA_XWIKI_RENDERING_FIGURE_TYPE, type);
         }
         return List.of();

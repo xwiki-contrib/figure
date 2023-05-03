@@ -57,7 +57,7 @@ public class FigureTypeConverter extends AbstractConverter<FigureType>
         }
 
         String stringValue = String.valueOf(value);
-        if (Objects.equals("automatic", stringValue.toLowerCase())) {
+        if (Objects.equals(AUTOMATIC.getId(), stringValue.toLowerCase())) {
             return AUTOMATIC;
         } else {
             return new FigureType(stringValue);
