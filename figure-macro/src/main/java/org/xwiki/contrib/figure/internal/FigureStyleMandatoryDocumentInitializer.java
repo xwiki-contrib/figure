@@ -20,6 +20,7 @@
 package org.xwiki.contrib.figure.internal;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -107,6 +108,7 @@ public class FigureStyleMandatoryDocumentInitializer extends AbstractMandatoryDo
 
     private String readCode() throws IOException
     {
-        return IOUtils.toString(getClass().getResourceAsStream(String.format("/%s", FIGURE_LESS_PATH)));
+        return IOUtils.toString(getClass().getResourceAsStream(String.format("/%s", FIGURE_LESS_PATH)),
+            Charset.defaultCharset());
     }
 }
