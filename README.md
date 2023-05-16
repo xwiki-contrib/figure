@@ -11,4 +11,4 @@ Provides the figure macro as well as its configuration.
 * License: LGPL 2.1
 * [Translations](https://l10n.xwiki.org/projects/xwiki-contrib/figure-macro/)
 * [Sonar Dashboard](https://sonarcloud.io/project/overview?id=org.xwiki.contrib%3Afigure)
-* Continuous Integration Status: [![Build Status](https://ci.xwiki.org/view/Contrib/job/XWiki%20Contrib/job/figure/job/main/badge/icon)](https://ci.xwiki.org/view/Contrib/job/XWiki%20Contrib/job/macro-figure/job/main/)
+* Continuous Integration Status: [![Build Status](https://ci.xwiki.org/view/Contrib/job/XWiki%20Contrib/job/figure/job/main/badge/icon)](https://ci.xwiki.org/view/Contrib/job/XWiki%20Contrib/job/figure/job/main/)
