@@ -25,10 +25,10 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>figure</artifactId>
-    <version>15.4</version>
+    <version>15.5-SNAPSHOT</version>
   </parent>
   <artifactId>figure-latex</artifactId>
-  <version>15.4</version>
+  <version>15.5-SNAPSHOT</version>
   <name>Figure - Latex</name>
   <description>Latex specific code for the figure application.</description>
   <packaging>jar</packaging>
