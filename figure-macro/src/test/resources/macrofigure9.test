@@ -1,0 +1,77 @@
+.runTransformations:macro
+.#--------------------------------------------------------------------------------------------------
+.input|xwiki/2.0
+.# Test error handling.
+.#--------------------------------------------------------------------------------------------------
+{{figure}}
+a 
+
+{{figureCaption}}Figure{{/figureCaption}}
+
+c
+{{/figure}}
+
+{{figure type="lemma"}}
+a 
+
+{{figureCaption}}Lemma{{/figureCaption}}
+{{/figure}}
+
+{{figureCaption}}Standalone Caption{{/figureCaption}}
+.#-----------------------------------------------------
+.expect|event/1.0
+.#-----------------------------------------------------
+beginDocument
+beginMacroMarkerStandalone [figure] [] [a 
+
+{{figureCaption}}Figure{{/figureCaption}}
+
+c]
+beginMacroMarkerStandalone [figureTypeRecognizer] []
+endMacroMarkerStandalone [figureTypeRecognizer] []
+beginFigure [[data-xwiki-rendering-figure-style]=[block][data-xwiki-rendering-figure-type]=[figure]]
+beginMetaData [[non-generated-content]=[java.util.List<org.xwiki.rendering.block.Block>]]
+beginParagraph
+onWord [a]
+onSpace
+endParagraph
+beginMacroMarkerStandalone [figureCaption] [] [Figure]
+beginGroup [[class]=[xwikirenderingerror]]
+onWord [The figure caption must be the first or last element of the figure.]
+endGroup [[class]=[xwikirenderingerror]]
+endMacroMarkerStandalone [figureCaption] [] [Figure]
+beginParagraph
+onWord [c]
+endParagraph
+endMetaData [[non-generated-content]=[java.util.List<org.xwiki.rendering.block.Block>]]
+endFigure [[data-xwiki-rendering-figure-style]=[block][data-xwiki-rendering-figure-type]=[figure]]
+endMacroMarkerStandalone [figure] [] [a 
+
+{{figureCaption}}Figure{{/figureCaption}}
+
+c]
+beginMacroMarkerStandalone [figure] [type=lemma] [a 
+
+{{figureCaption}}Lemma{{/figureCaption}}]
+beginFigure [[data-xwiki-rendering-figure-style]=[block][data-xwiki-rendering-figure-type]=[lemma]]
+beginMetaData [[non-generated-content]=[java.util.List<org.xwiki.rendering.block.Block>]]
+beginParagraph
+onWord [a]
+onSpace
+endParagraph
+beginMacroMarkerStandalone [figureCaption] [] [Lemma]
+beginGroup [[class]=[xwikirenderingerror]]
+onWord [The caption of inline figure must be the first element of the figure.]
+endGroup [[class]=[xwikirenderingerror]]
+endMacroMarkerStandalone [figureCaption] [] [Lemma]
+endMetaData [[non-generated-content]=[java.util.List<org.xwiki.rendering.block.Block>]]
+endFigure [[data-xwiki-rendering-figure-style]=[block][data-xwiki-rendering-figure-type]=[lemma]]
+endMacroMarkerStandalone [figure] [type=lemma] [a 
+
+{{figureCaption}}Lemma{{/figureCaption}}]
+beginMacroMarkerStandalone [figureCaption] [] [Standalone Caption]
+beginGroup [[class]=[xwikirenderingerror]]
+onWord [The figure caption must be located inside a figure macro.]
+endGroup [[class]=[xwikirenderingerror]]
+endMacroMarkerStandalone [figureCaption] [] [Standalone Caption]
+endDocument

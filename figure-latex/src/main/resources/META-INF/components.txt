@@ -1,0 +1,4 @@
+500:org.xwiki.contrib.figure.latex.internal.DefaultTypedFigureTool
+org.xwiki.contrib.figure.latex.internal.uix.PreambleUIExtension
+org.xwiki.contrib.figure.latex.internal.uix.PreambleUsepackageUIExtension
+org.xwiki.contrib.figure.latex.internal.uix.FigureCaptionBlockBeforeUIExtension

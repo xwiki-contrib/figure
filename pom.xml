@@ -27,32 +27,22 @@
     <artifactId>parent-platform</artifactId>
     <version>14.9</version>
   </parent>
-  <artifactId>macro-figure</artifactId>
+  <artifactId>figure</artifactId>
   <!-- Starting at 15.4 to allow versions between 14.9 and 15.3 to be offered to upgrade (with a 1.0 version, this 
        would be considered a downgrade by the extensions UI. -->
   <version>15.4-SNAPSHOT</version>
-  <name>Figure Macro</name>
-  <description>Provides the figure macro.</description>
+  <name>Application Figure</name>
+  <description>Parent POM of the application figure modules.</description>
+  <packaging>pom</packaging>
   <properties>
-    <xwiki.jacoco.instructionRatio>0.88</xwiki.jacoco.instructionRatio>
-    <!-- Name to display by the Extension Manager -->
-    <xwiki.extension.name>Figure Macro</xwiki.extension.name>
-    <!-- Extension Type for the Extension Manager -->
-    <xwiki.extension.category>macro</xwiki.extension.category>
-    <!-- Exposed Components for the Extension Manager -->
-    <!-- Note: We don't put the figureCaption macro here because it can only be used inside the Figure macro, and it's
-         bundled with it -->
-    <xwiki.extension.components>org.xwiki.rendering.macro.Macro/figure</xwiki.extension.components>
     <xwiki.issueManagement.system>jira</xwiki.issueManagement.system>
     <xwiki.issueManagement.url>https://jira.xwiki.org/browse/XFIGURE</xwiki.issueManagement.url>
     <xwiki.release.jira.skip>false</xwiki.release.jira.skip>
-    <!-- Old names of this module used for retro compatibility when resolving dependencies of old extensions -->
-    <xwiki.extension.features>org.xwiki.rendering:xwiki-rendering-macro-figure</xwiki.extension.features>
   </properties>
   <scm>
-    <connection>scm:git:git://github.com/xwiki-contrib/macro-figure.git</connection>
-    <developerConnection>scm:git:git@github.com:xwiki-contrib/macro-figure.git</developerConnection>
-    <url>https://github.com/xwiki-contrib/macro-figure</url>
+    <connection>scm:git:git://github.com/xwiki-contrib/figure.git</connection>
+    <developerConnection>scm:git:git@github.com:xwiki-contrib/figure.git</developerConnection>
+    <url>https://github.com/xwiki-contrib/figure</url>
     <tag>HEAD</tag>
   </scm>
   <developers>
@@ -61,91 +51,16 @@
       <name>Manuel Leduc</name>
     </developer>
   </developers>
-  <dependencies>
-    <dependency>
-      <groupId>org.xwiki.commons</groupId>
-      <artifactId>xwiki-commons-component-api</artifactId>
-      <version>${commons.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-api</artifactId>
-      <version>${rendering.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-transformation-macro</artifactId>
-      <version>${rendering.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.platform</groupId>
-      <artifactId>xwiki-platform-localization-api</artifactId>
-      <version>${platform.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.platform</groupId>
-      <artifactId>xwiki-platform-oldcore</artifactId>
-      <version>${platform.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.platform</groupId>
-      <artifactId>xwiki-platform-configuration-default</artifactId>
-      <version>${platform.version}</version>
-    </dependency>
-    <!-- Test dependencies. -->
-    <dependency>
-      <groupId>org.xwiki.commons</groupId>
-      <artifactId>xwiki-commons-tool-test-component</artifactId>
-      <version>${commons.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-test</artifactId>
-      <version>${rendering.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-syntax-xwiki21</artifactId>
-      <version>${rendering.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-syntax-event</artifactId>
-      <version>${rendering.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-syntax-xhtml</artifactId>
-      <version>${rendering.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mortbay.jasper</groupId>
-      <artifactId>apache-el</artifactId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  <modules>
+    <module>figure-macro</module>
+    <module>figure-latex</module>
+  </modules>
   <build>
     <plugins>
       <plugin>
         <groupId>org.revapi</groupId>
         <artifactId>revapi-maven-plugin</artifactId>
         <configuration>
-          <oldArtifacts>
-            <artifact>org.xwiki.rendering:xwiki-rendering-macro-figure:14.9</artifact>
-          </oldArtifacts>
-          <newArtifacts>
-            <artifact>${project.groupId}:${project.artifactId}:${project.version}</artifact>
-          </newArtifacts>
           <analysisConfiguration>
             <revapi.filter>
               <archives>
