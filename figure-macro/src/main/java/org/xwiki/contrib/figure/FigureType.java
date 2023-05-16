@@ -19,6 +19,7 @@
  */
 package org.xwiki.contrib.figure;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -55,6 +56,12 @@ public class FigureType
      * detected in the content.
      */
     public static final FigureType TABLE = new FigureType("table", BLOCK);
+
+    /**
+     * List of default figure types.
+     */
+    public static final List<String> DEFAULT_FIGURE_TYPES =
+        List.of(FigureType.FIGURE.getId(), FigureType.TABLE.getId(), FigureType.AUTOMATIC.getId());
 
     private final String id;
 
@@ -101,7 +108,6 @@ public class FigureType
     }
 
     /**
-     * 
      * @return the style of the figure (i.e., "block" or "inline")
      */
     public FigureStyle getFigureStyle()

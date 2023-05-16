@@ -19,7 +19,6 @@
  */
 package org.xwiki.contrib.figure.latex.internal.uix;
 
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -33,6 +32,8 @@ import org.xwiki.contrib.figure.internal.FigureTypesConfiguration;
 import org.xwiki.contrib.latex.internal.LaTeXTool;
 import org.xwiki.rendering.block.Block;
 import org.xwiki.rendering.block.RawBlock;
+
+import static org.xwiki.contrib.figure.FigureType.DEFAULT_FIGURE_TYPES;
 
 /**
  * Injects the theorem and floating environment declarations in the preamble of the generated document.
@@ -78,7 +79,7 @@ public class PreambleUIExtension extends AbstractFigureLatexUIExtension
         String newLine = System.lineSeparator();
         String collect = this.figureTypesConfiguration.getFigureTypes()
             .stream()
-            .filter(it -> !List.of("figure", "table").contains(it.getId()))
+            .filter(it -> !DEFAULT_FIGURE_TYPES.contains(it.getId()))
             .map(type -> {
                 String typeDeclaration;
                 String typeId = type.getId();
