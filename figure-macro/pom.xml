@@ -25,10 +25,10 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>figure</artifactId>
-    <version>15.4-SNAPSHOT</version>
+    <version>15.4</version>
   </parent>
   <artifactId>figure-macro</artifactId>
-  <version>15.4-SNAPSHOT</version>
+  <version>15.4</version>
   <name>Figure Macro</name>
   <description>Provides the figure macro.</description>
   <packaging>jar</packaging>
