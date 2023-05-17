@@ -30,7 +30,7 @@
   <artifactId>figure-macro</artifactId>
   <version>15.5-SNAPSHOT</version>
   <name>Figure Macro</name>
-  <description>Provides the figure macro.</description>
+  <description>Tag content as an illustration and with an optional caption</description>
   <packaging>jar</packaging>
   <properties>
     <xwiki.jacoco.instructionRatio>0.81</xwiki.jacoco.instructionRatio>

@@ -34,7 +34,7 @@
   <packaging>jar</packaging>
   <properties>
     <!-- Name to display by the Extension Manager -->
-    <xwiki.extension.name>Latex for the Figure Macro</xwiki.extension.name>
+    <xwiki.extension.name>LaTeX for the Figure Macro</xwiki.extension.name>
     <!-- Extension Type for the Extension Manager -->
     <xwiki.extension.category>api</xwiki.extension.category>
   </properties>
