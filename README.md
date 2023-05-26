@@ -3,7 +3,7 @@
 Provides the figure macro as well as its configuration.
 
 * Project Lead: [Manuel Leduc](https://www.xwiki.org/xwiki/bin/view/XWiki/mleduc)
-* [Documentation & Download](https://extensions.xwiki.org/xwiki/bin/view/Extension/Figure%20Macro/)
+* [Documentation & Download](https://extensions.xwiki.org/xwiki/bin/view/Extension/Figure/)
 * [Issue Tracker](https://jira.xwiki.org/projects/XFIGURE)
 * Communication: [Forum](https://forum.xwiki.org/), [Chat](https://dev.xwiki.org/xwiki/bin/view/Community/Chat)
 * [Development Practices](http://dev.xwiki.org)
