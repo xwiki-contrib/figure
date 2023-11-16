@@ -42,7 +42,10 @@
          bundled with it -->
     <xwiki.extension.components>org.xwiki.rendering.macro.Macro/figure</xwiki.extension.components>
     <!-- Old names of this module used for retro compatibility when resolving dependencies of old extensions -->
-    <xwiki.extension.features>org.xwiki.rendering:xwiki-rendering-macro-figure</xwiki.extension.features>
+    <xwiki.extension.features>
+      org.xwiki.rendering:xwiki-rendering-macro-figure,
+      org.xwiki.contrib:macro-figure
+    </xwiki.extension.features>
   </properties>
   <dependencies>
     <dependency>
