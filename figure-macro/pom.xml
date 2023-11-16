@@ -122,29 +122,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.revapi</groupId>
-        <artifactId>revapi-maven-plugin</artifactId>
-        <configuration>
-          <oldArtifacts>
-            <artifact>org.xwiki.rendering:xwiki-rendering-macro-figure:14.9</artifact>
-          </oldArtifacts>
-          <newArtifacts>
-            <artifact>${project.groupId}:${project.artifactId}:${project.version}</artifact>
-          </newArtifacts>
-          <analysisConfiguration>
-            <revapi.filter>
-              <archives>
-                <exclude>
-                  <item>org\.xwiki\.commons:.*:.*</item>
-                </exclude>
-              </archives>
-            </revapi.filter>
-          </analysisConfiguration>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
