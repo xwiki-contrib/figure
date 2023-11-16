@@ -30,7 +30,7 @@
   <artifactId>figure-latex</artifactId>
   <version>15.5-SNAPSHOT</version>
   <name>Figure - Latex</name>
-  <description>Latex specific code for the figure application.</description>
+  <description>Latex specific code for the Figure macro</description>
   <packaging>jar</packaging>
   <properties>
     <!-- Name to display by the Extension Manager -->

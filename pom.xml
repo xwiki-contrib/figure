@@ -31,8 +31,8 @@
   <!-- Starting at 15.4 to allow versions between 14.9 and 15.3 to be offered to upgrade (with a 1.0 version, this 
        would be considered a downgrade by the extensions UI. -->
   <version>15.5-SNAPSHOT</version>
-  <name>Application Figure</name>
-  <description>Parent POM of the application figure modules.</description>
+  <name>Figure - Parent POM</name>
+  <description>Parent POM for Figure modules</description>
   <packaging>pom</packaging>
   <properties>
     <xwiki.issueManagement.system>jira</xwiki.issueManagement.system>
@@ -50,10 +50,18 @@
       <id>mleduc</id>
       <name>Manuel Leduc</name>
     </developer>
+    <developer>
+      <id>vmassol</id>
+      <name>Vincent Massol</name>
+    </developer>
+    <developer>
+      <id>xwikidev</id>
+      <name>XWiki Development Team</name>
+    </developer>
   </developers>
   <modules>
-    <module>figure-macro</module>
     <module>figure-latex</module>
+    <module>figure-macro</module>
   </modules>
   <build>
     <plugins>

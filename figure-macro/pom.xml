@@ -28,8 +28,7 @@
     <version>15.5-SNAPSHOT</version>
   </parent>
   <artifactId>figure-macro</artifactId>
-  <version>15.5-SNAPSHOT</version>
-  <name>Figure Macro</name>
+  <name>Figure - Macro</name>
   <description>Tag content as an illustration and with an optional caption</description>
   <packaging>jar</packaging>
   <properties>
