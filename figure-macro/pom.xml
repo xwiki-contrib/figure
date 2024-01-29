@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>figure</artifactId>
-    <version>15.4.2</version>
+    <version>15.4.3-SNAPSHOT</version>
   </parent>
   <artifactId>figure-macro</artifactId>
   <name>Figure - Macro</name>
