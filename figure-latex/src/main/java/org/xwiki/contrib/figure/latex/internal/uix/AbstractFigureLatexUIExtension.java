@@ -30,7 +30,7 @@ import org.xwiki.rendering.syntax.SyntaxRegistry;
 import org.xwiki.uiextension.UIExtension;
 
 /**
- * Common code for all the UIXs of Figure Latex. Mainly initialize the component with the "latex/1.0" syntax using the
+ * Common code for all the UIXs of Figure LaTeX. Mainly initialize the component with the "latex/1.0" syntax using the
  * {@link SyntaxRegistry}.
  *
  * @version $Id$
