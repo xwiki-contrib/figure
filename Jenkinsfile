@@ -24,9 +24,14 @@
 // @Library("XWiki@<branch, tag, sha1>") _
 // See https://github.com/jenkinsci/workflow-cps-global-lib-plugin for details.
 
-node() {
+node('docker') {
     xwikiBuild {
+        xvnc = false
         goals = 'clean deploy jacoco:report sonar:sonar'
-        profiles = 'quality'
+        profiles = 'quality,integration-tests,docker'
+        sonar = true
+        // Force Java 17 even though we depend on XS requiring only Java11 because we run SonarQube and this requires
+        // Java 17.
+        javaTool = 'java11'
     }
 }
