@@ -7,7 +7,7 @@ Provides the figure macro as well as its configuration.
 * [Issue Tracker](https://jira.xwiki.org/projects/XFIGURE)
 * Communication: [Forum](https://forum.xwiki.org/), [Chat](https://dev.xwiki.org/xwiki/bin/view/Community/Chat)
 * [Development Practices](http://dev.xwiki.org)
-* Minimal XWiki version supported: 14.9
+* Minimal XWiki version supported: 14.10
 * License: LGPL 2.1
 * [Translations](https://l10n.xwiki.org/projects/xwiki-contrib/figure-macro/)
 * [Sonar Dashboard](https://sonarcloud.io/project/overview?id=org.xwiki.contrib%3Afigure)

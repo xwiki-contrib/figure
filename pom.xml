@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>parent-platform</artifactId>
-    <version>14.9</version>
+    <version>14.10</version>
   </parent>
   <artifactId>figure</artifactId>
   <!-- Starting at 15.4 to allow versions between 14.9 and 15.3 to be offered to upgrade (with a 1.0 version, this 
@@ -62,5 +62,26 @@
   <modules>
     <module>figure-latex</module>
     <module>figure-macro</module>
+    <module>figure-macro-api</module>
   </modules>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Use a more recent version of Spoon to avoid URL classloader issue with Java 17. We need to build with
+             Java 17 since SonarQube requires it now -->
+        <plugin>
+          <groupId>fr.inria.gforge.spoon</groupId>
+          <artifactId>spoon-maven-plugin</artifactId>
+          <version>3.8.0</version>
+          <dependencies>
+            <dependency>
+              <groupId>fr.inria.gforge.spoon</groupId>
+              <artifactId>spoon-core</artifactId>
+              <version>10.4.2</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>

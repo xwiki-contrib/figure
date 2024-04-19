@@ -47,7 +47,8 @@
     <dependency>
       <groupId>org.xwiki.contrib.latex</groupId>
       <artifactId>latex-syntax</artifactId>
-      <version>1.21</version>
+      <version>1.24</version>
+      <!-- TODO: Remove once we upgrade to version 1.25+ of latex-syntax -->
       <exclusions>
         <exclusion>
           <artifactId>bcpkix-jdk15on</artifactId>
