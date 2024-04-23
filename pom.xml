@@ -30,7 +30,7 @@
   <artifactId>figure</artifactId>
   <!-- Starting at 15.4 to allow versions between 14.9 and 15.3 to be offered to upgrade (with a 1.0 version, this 
        would be considered a downgrade by the extensions UI. -->
-  <version>15.4.4-SNAPSHOT</version>
+  <version>15.4.4</version>
   <name>Figure - Parent POM</name>
   <description>Parent POM for Figure modules</description>
   <packaging>pom</packaging>
@@ -43,7 +43,7 @@
     <connection>scm:git:git://github.com/xwiki-contrib/figure.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/figure.git</developerConnection>
     <url>https://github.com/xwiki-contrib/figure</url>
-    <tag>HEAD</tag>
+    <tag>figure-15.4.4</tag>
   </scm>
   <developers>
     <developer>
