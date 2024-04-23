@@ -47,42 +47,7 @@
     <dependency>
       <groupId>org.xwiki.contrib.latex</groupId>
       <artifactId>latex-syntax</artifactId>
-      <version>1.24</version>
-      <!-- TODO: Remove once we upgrade to version 1.25+ of latex-syntax -->
-      <exclusions>
-        <exclusion>
-          <artifactId>bcpkix-jdk15on</artifactId>
-          <groupId>org.bouncycastle</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>bcprov-jdk15on</artifactId>
-          <groupId>org.bouncycastle</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>xwiki-platform-uiextension-api</artifactId>
-          <groupId>org.xwiki.platform</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>xwiki-platform-localization-api</artifactId>
-          <groupId>org.xwiki.platform</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>xwiki-platform-rendering-macro-velocity</artifactId>
-          <groupId>org.xwiki.platform</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>xwiki-commons-properties</artifactId>
-          <groupId>org.xwiki.commons</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>xwiki-platform-template-api</artifactId>
-          <groupId>org.xwiki.platform</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>xwiki-rendering-syntax-wikimodel</artifactId>
-          <groupId>org.xwiki.rendering</groupId>
-        </exclusion>
-      </exclusions>
+      <version>1.25</version>
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
