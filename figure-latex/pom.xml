@@ -47,7 +47,7 @@
     <dependency>
       <groupId>org.xwiki.contrib.latex</groupId>
       <artifactId>latex-syntax</artifactId>
-      <version>1.25</version>
+      <version>1.26.1</version>
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
